@@ -1,0 +1,76 @@
+App.js
+
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { Home } from './MyComponents/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Contact } from './MyComponents/Contact';
+
+const Stack = createNativeStackNavigator();
+
+
+export default function App() {
+  const myname="fareen"
+  // console.log(myname)
+  console.log("react app")
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+        />
+        <Stack.Screen 
+        name="Contact" 
+        component={Contact} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home.js
+import React from 'react'
+import { Text, View, Button } from 'react-native';
+
+
+export const Home = ({navigation}) => {  
+  return (
+    <View>
+      <Text>This is home</Text>
+      <Button
+        title="Contact us"
+        onPress={() => navigation.navigate('Contact')}
+      />      
+      
+    </View>
+      
+  )
+}
+
